@@ -2,3 +2,4 @@ node_modules/
 .storybook/
 .eslintrc.js
  **/*.config.js
+ commitlint.config.js
