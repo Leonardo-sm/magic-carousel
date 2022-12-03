@@ -1,0 +1,20 @@
+{
+  "name": "@magic-carousel/react",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@storybook/react": "^6.5.14",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
