@@ -1,0 +1,14 @@
+{
+  "name": "@magic-carousel/vanilla",
+  "version": "0.0.0",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@storybook/html": "^6.5.14"
+  }
+}

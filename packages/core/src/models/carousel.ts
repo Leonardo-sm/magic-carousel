@@ -1,33 +1,27 @@
+import CarouselControls from './CarouselControls';
 import { ICarousel } from '../types';
 
 class Carousel implements ICarousel {
+  carouselSlider: HTMLUListElement;
   slidesLen: number;
 
   currentSlide = 0;
+  controls: CarouselControls;
+  private children: HTMLLIElement[];
 
-  constructor(slidesLen: number) {
-    this.slidesLen = slidesLen - 1;
+  constructor(carouselSliderRef: HTMLUListElement) {
+    this.carouselSlider = carouselSliderRef;
+    this.slidesLen = carouselSliderRef.children.length - 1;
+    this.children = carouselSliderRef.children as unknown as HTMLLIElement[];
+    this.controls = new CarouselControls(this.slidesLen);
   }
 
-  goToNextSlide() {
-    if (this.currentSlide < this.slidesLen) {
-      this.currentSlide += 1;
-    }
-    return this.currentSlide;
+  get setchildren() {
+    return this.children;
   }
 
-  goToPrevSlide() {
-    if (this.currentSlide > 0) {
-      this.currentSlide -= 1;
-    }
-    return this.currentSlide;
-  }
-
-  goToSlideIndex(index: number) {
-    if (index <= this.slidesLen && index >= 0) {
-      this.currentSlide = index;
-    }
-    return this.currentSlide;
+  set setchildren(child: HTMLLIElement) {
+    this.children.push(child);
   }
 }
 
