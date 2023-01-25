@@ -1,27 +1,46 @@
+import type { CSSPropertiesObject, ICarousel, ICarouselConfig } from '../types';
+
 import CarouselControls from './CarouselControls';
-import { ICarousel } from '../types';
+import { setDynamicProps } from '../style/setDynamicProps';
 
 class Carousel implements ICarousel {
-  carouselSlider: HTMLUListElement;
+  carouselSliderElement: HTMLUListElement;
   slidesLen: number;
 
   currentSlide = 0;
   controls: CarouselControls;
-  private children: HTMLLIElement[];
+  private _children: HTMLLIElement[];
 
-  constructor(carouselSliderRef: HTMLUListElement) {
-    this.carouselSlider = carouselSliderRef;
-    this.slidesLen = carouselSliderRef.children.length - 1;
-    this.children = carouselSliderRef.children as unknown as HTMLLIElement[];
+  sliderStyle: CSSPropertiesObject;
+
+  constructor(
+    carouselSliderElement: HTMLUListElement,
+    {
+      animationSpeed = 0.3,
+      slidesToShow,
+      animationEffectType = 'ease-in-out',
+    }: Partial<ICarouselConfig>
+  ) {
+    this.carouselSliderElement = carouselSliderElement;
+    this.slidesLen = carouselSliderElement.children.length - 1;
+    this._children =
+      carouselSliderElement.children as unknown as HTMLLIElement[];
     this.controls = new CarouselControls(this.slidesLen);
+
+    this.sliderStyle = setDynamicProps({
+      direction: 'horizontal',
+      position: 0,
+      animationSpeed,
+      animationEffectType,
+    });
   }
 
-  get setchildren() {
-    return this.children;
+  get children() {
+    return this._children;
   }
 
-  set setchildren(child: HTMLLIElement) {
-    this.children.push(child);
+  set children(children: HTMLLIElement[]) {
+    this._children = children;
   }
 }
 
