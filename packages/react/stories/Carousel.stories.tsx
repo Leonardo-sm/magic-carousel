@@ -1,69 +1,54 @@
-import CarouselItem from '../src/components/CarouselItem';
-import CarouselSlider from '../src/components/CarouselSlider';
-import { ComponentMeta } from '@storybook/react';
-import { useState } from 'react';
+import { useCarousel } from '../src/useCarousel';
+import { useRef } from 'react';
 
 export default {
   title: 'Carousel',
-  component: CarouselSlider,
   parameters: {},
-} as ComponentMeta<typeof CarouselSlider>;
+};
 
-export const Default = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+const items = [
+  {
+    child: () => {
+      return <img src="https://picsum.photos/200/300" alt="" />;
+    },
+  },
+  {
+    child: () => {
+      return <img src="https://picsum.photos/200/300" alt="" />;
+    },
+  },
+  {
+    child: () => {
+      return <img src="https://picsum.photos/200/300" alt="" />;
+    },
+  },
+];
 
-  function goToNextSlide() {
-    setCurrentSlide((prev) => prev + 1);
-  }
+function Screen() {
+  const carousel = useCarousel({
+    items,
+  });
 
-  function goToPrevSlide() {
-    setCurrentSlide((prev) => prev - 1);
-  }
+  const ref = useRef<HTMLUListElement>(null);
 
   return (
-    <div style={{ display: 'flex' }}>
-      <button onClick={goToPrevSlide}>Anterior</button>
-      <div style={{ display: 'flex', overflowX: 'hidden', width: 1200 }}>
-        <CarouselSlider currentSlideIndex={currentSlide}>
-          <CarouselItem>
-            <div
-              style={{
-                height: 120,
-                backgroundColor: 'red',
-                border: '5px solid black',
-              }}
-            ></div>
-          </CarouselItem>
-          <CarouselItem>
-            <div
-              style={{
-                height: 120,
-                backgroundColor: 'green',
-                border: '5px solid black',
-              }}
-            ></div>
-          </CarouselItem>
-          <CarouselItem>
-            <div
-              style={{
-                height: 120,
-                backgroundColor: 'blue',
-                border: '5px solid black',
-              }}
-            ></div>
-          </CarouselItem>
-          <CarouselItem>
-            <div
-              style={{
-                height: 120,
-                backgroundColor: 'coral',
-                border: '5px solid black',
-              }}
-            ></div>
-          </CarouselItem>
-        </CarouselSlider>
-      </div>
-      <button onClick={goToNextSlide}>Proximo</button>
+    <div>
+      <ul {...carousel.container.getProps()}>
+        {carousel.items.map((item) => (
+          <li key={item.id} {...item.getProps()}>
+            {item.child()}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export const Default = () => {
+  return (
+    <div>
+      <h1>Simple Carousel</h1>
+      <Screen />
     </div>
   );
 };
