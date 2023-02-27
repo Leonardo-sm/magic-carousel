@@ -1,5 +1,4 @@
 import { useCarousel } from '../src/useCarousel';
-import { useRef } from 'react';
 
 export default {
   title: 'Carousel',
@@ -14,12 +13,12 @@ const items = [
   },
   {
     child: () => {
-      return <img src="https://picsum.photos/200/300" alt="" />;
+      return <img src="https://picsum.photos/200/300?" alt="" />;
     },
   },
   {
     child: () => {
-      return <img src="https://picsum.photos/200/300" alt="" />;
+      return <img src="https://picsum.photos/200/300?teste" alt="" />;
     },
   },
 ];
@@ -29,18 +28,27 @@ function Screen() {
     items,
   });
 
-  const ref = useRef<HTMLUListElement>(null);
-
   return (
-    <div>
-      <ul {...carousel.container.getProps()}>
-        {carousel.items.map((item) => (
-          <li key={item.id} {...item.getProps()}>
-            {item.child()}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div style={{ overflowX: 'hidden' }}>
+        <ul {...carousel.container.getProps()}>
+          {carousel.items.map((item) => (
+            <li key={item.id} {...item.getProps()}>
+              {item.child()}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <button
+        onClick={() => {
+          carousel.triggers.goToPrevItem();
+          console.log(carousel.container.getProps());
+        }}
+      >
+        Prev
+      </button>
+      <button onClick={carousel.triggers.goToNextItem}>Next</button>
+    </>
   );
 }
 

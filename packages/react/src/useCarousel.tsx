@@ -42,53 +42,54 @@ interface IUseCarouselReturn {
         display: 'flex';
         margin: 0;
         padding: 0;
-        overflowX: 'hidden';
         listStyle: 'none';
+        transform: string;
+        transition: string;
       };
     };
   };
   /**
    * Property to contains a state properties.
    */
-  // state: {
-  //   /**
-  //    * A index for the current focus rendered item.
-  //    */
-  //   currentIndex: number;
-  //   /**
-  //    * A index list for the items visible on screen.
-  //    */
-  //   visibleItems: number[];
-  //   /**
-  //    * A index for a next item to rendered in order list.
-  //    */
-  //   nextItem: number;
-  //   /**
-  //    * A index for a previous item in rendered list.
-  //    */
-  //   prevItem: number;
-  //   /**
-  //    * Length to the total for the carousel items.
-  //    */
-  //   size: number;
-  // };
+  state: {
+    /**
+     * A index for the current focus rendered item.
+     */
+    currentIndex: number;
+    /**
+     * A index list for the items visible on screen.
+     */
+    // visibleItems: number[];
+    /**
+     * A index for a next item to rendered in order list.
+     */
+    // nextItem: number;
+    /**
+     * A index for a previous item in rendered list.
+     */
+    // prevItem: number;
+    /**
+     * Length to the total for the carousel items.
+     */
+    // size: number;
+  };
   /**
    * Property to contain a control methods.
    */
-  // triggers: {
-  //   /**
-  //    * Function to move for the next item to the list.
-  //    */
-  //   goToNextItem: () => void;
-  //   /**
-  //    * Function to move for the previous item to the list.
-  //    */
-  //   goToPrevItem: () => void;
-  //   /**
-  //    * Function to move for a specific item to the list.
-  //    */
-  //   goToIndex: (index: number) => void;
-  // };
+  triggers: {
+    /**
+     * Function to move for the next item to the list.
+     */
+    goToNextItem: () => void;
+    /**
+     * Function to move for the previous item to the list.
+     */
+    goToPrevItem: () => void;
+    /**
+     * Function to move for a specific item to the list.
+     */
+    goToIndex: (index: number) => void;
+  };
 }
 
 /**
@@ -99,6 +100,25 @@ export function useCarousel(options: IUseCarousel): IUseCarouselReturn {
   const containerRef = useRef<HTMLElement>(null);
 
   const [data, setData] = useState<IReturnItem[]>([]);
+  const [positions, setPositions] = useState<number[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  function goToNextItem() {
+    if (currentIndex < positions.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
+    }
+  }
+
+  function goToPrevItem() {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  }
+
+  function goToIndex(index: number) {
+    setCurrentIndex(index);
+  }
+
   useEffect(() => {
     const containerRefProp = containerRef.current;
 
@@ -109,15 +129,21 @@ export function useCarousel(options: IUseCarousel): IUseCarouselReturn {
 
     const containerWidth = containerRefProp.clientWidth;
 
-    const newData = options.items.map((item, index) => ({
-      id: index,
-      ...item,
-      getProps: () =>
-        ({ style: { width: containerWidth, flexShrink: 0 } } as const),
-    }));
+    const newData = options.items.map((item, index) => {
+      setPositions((prev) => [...prev, -(index * containerWidth)]);
+
+      return {
+        id: index,
+        ...item,
+        getProps: () =>
+          ({ style: { width: containerWidth, flexShrink: 0 } } as const),
+      };
+    });
 
     setData(newData);
   }, [options.items]);
+
+  console.log(positions);
 
   function typedGetProps<TRef extends HTMLElement>() {
     return {
@@ -126,16 +152,21 @@ export function useCarousel(options: IUseCarousel): IUseCarouselReturn {
         display: 'flex',
         margin: 0,
         padding: 0,
-        overflowX: 'hidden',
         listStyle: 'none',
+        transform: `translateX(${positions[currentIndex]}px)`,
+        transition: '500ms',
       } as const,
     };
   }
 
-  console.log(data);
-
   return {
     items: data,
     container: { getProps: typedGetProps },
+    state: { currentIndex },
+    triggers: {
+      goToNextItem,
+      goToPrevItem,
+      goToIndex,
+    },
   };
 }

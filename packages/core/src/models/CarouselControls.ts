@@ -1,29 +1,39 @@
-import { ICarouselControl } from '../types';
+export interface ICarouselTriggers {
+  goToNextItem: () => void;
+  /**
+   * Function to move for the previous item to the list.
+   */
+  goToPrevItem: () => void;
+  /**
+   * Function to move for a specific item to the list.
+   */
+  goToIndex: (index: number) => void;
+}
 
-class CarouselControls implements ICarouselControl {
-  slidesLen: number;
+class CarouselControls implements ICarouselTriggers {
+  size: number;
 
-  currentSlide = 0;
+  currentItem = 0;
 
   constructor(slidesLen: number) {
     this.slidesLen = slidesLen - 1;
   }
 
-  goToNextSlide() {
+  goToNextItem() {
     if (this.currentSlide < this.slidesLen) {
       this.currentSlide += 1;
     }
     return this.currentSlide;
   }
 
-  goToPrevSlide() {
+  goToPrevItem() {
     if (this.currentSlide > 0) {
       this.currentSlide -= 1;
     }
     return this.currentSlide;
   }
 
-  goToSlideIndex(index: number) {
+  goToIndex(index: number) {
     if (index <= this.slidesLen && index >= 0) {
       this.currentSlide = index;
     }
