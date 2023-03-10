@@ -74,7 +74,7 @@ interface IUseCarouselReturn {
     /**
      * A index for the current focus rendered item.
      */
-    currentIndex: number;
+    currentIndex: number | any;
   };
   /**
    * Property to contain a control methods.
