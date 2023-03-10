@@ -13,7 +13,7 @@ import {
   ITrackStyle as ITrackStyleCore,
   sliderDefaultStyle,
   trackDefaultStyle,
-} from '@magic-carousel/core';
+} from '@elementalstack/core';
 
 interface ICarouselItems {
   /**
