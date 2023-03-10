@@ -30,8 +30,8 @@ function Screen() {
 
   return (
     <>
-      <div style={{ overflowX: 'hidden' }}>
-        <ul {...carousel.container.getProps()}>
+      <div {...carousel.slider.getProps()}>
+        <ul {...carousel.track.getProps()}>
           {carousel.items.map((item) => (
             <li key={item.id} {...item.getProps()}>
               {item.child()}
@@ -39,14 +39,7 @@ function Screen() {
           ))}
         </ul>
       </div>
-      <button
-        onClick={() => {
-          carousel.triggers.goToPrevItem();
-          console.log(carousel.container.getProps());
-        }}
-      >
-        Prev
-      </button>
+      <button onClick={carousel.triggers.goToPrevItem}>Prev</button>
       <button onClick={carousel.triggers.goToNextItem}>Next</button>
     </>
   );

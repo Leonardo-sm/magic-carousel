@@ -1,7 +1,13 @@
 {
-  "name": "@magic-carousel/core",
+  "name": "@elementalstack/core",
   "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
-  "license": "MIT"
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsup --config tsup.config.cjs.ts",
+    "build:esm": "tsup  --config tsup.config.esm.ts",
+    "release": "release-it"
+  }
 }

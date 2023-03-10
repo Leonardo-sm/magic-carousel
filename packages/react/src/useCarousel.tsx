@@ -1,4 +1,19 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, {
+  ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
+import {
+  Carousel,
+  ICarouselState,
+  IItemStyle,
+  ISliderStyle,
+  ITrackStyle as ITrackStyleCore,
+  sliderDefaultStyle,
+  trackDefaultStyle,
+} from '@magic-carousel/core';
 
 interface ICarouselItems {
   /**
@@ -26,8 +41,14 @@ interface IReturnItem {
    */
   child: () => ReactNode;
   getProps: () => {
-    style: { width: number; flexShrink: 0 };
+    style: IItemStyle;
   };
+}
+
+interface ITrackStyle
+  extends Omit<ITrackStyleCore, 'transition' | 'transform'> {
+  transform?: string;
+  transition?: string;
 }
 
 interface IUseCarouselReturn {
@@ -35,17 +56,15 @@ interface IUseCarouselReturn {
    * Property to return a processed items collections
    */
   items: IReturnItem[];
-  container: {
+  slider: {
+    getProps: () => {
+      style: ISliderStyle;
+    };
+  };
+  track: {
     getProps: <TRef extends HTMLElement>() => {
       ref: React.RefObject<TRef>;
-      style: {
-        display: 'flex';
-        margin: 0;
-        padding: 0;
-        listStyle: 'none';
-        transform: string;
-        transition: string;
-      };
+      style: ITrackStyle;
     };
   };
   /**
@@ -56,22 +75,6 @@ interface IUseCarouselReturn {
      * A index for the current focus rendered item.
      */
     currentIndex: number;
-    /**
-     * A index list for the items visible on screen.
-     */
-    // visibleItems: number[];
-    /**
-     * A index for a next item to rendered in order list.
-     */
-    // nextItem: number;
-    /**
-     * A index for a previous item in rendered list.
-     */
-    // prevItem: number;
-    /**
-     * Length to the total for the carousel items.
-     */
-    // size: number;
   };
   /**
    * Property to contain a control methods.
@@ -94,79 +97,71 @@ interface IUseCarouselReturn {
 
 /**
  * `useCarousel` is a custom hook used to generate a carousel items props and methods to help a render the carousel.
- * @see {@link https://tsdoc.org/pages/tags/see/}
  */
 export function useCarousel(options: IUseCarousel): IUseCarouselReturn {
-  const containerRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLElement>(null);
+  const carouselRef = useRef<Carousel | null>(null);
 
   const [data, setData] = useState<IReturnItem[]>([]);
-  const [positions, setPositions] = useState<number[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [state, setState] = useState<ICarouselState>({} as ICarouselState);
 
-  function goToNextItem() {
-    if (currentIndex < positions.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
+  const triggers = {
+    goToNextItem: () => carouselRef.current?.controls.goToNextItem(),
+    goToPrevItem: () => carouselRef.current?.controls.goToPrevItem(),
+    goToIndex: (index: number) =>
+      carouselRef.current?.controls.goToIndex(index),
+  };
+
+  useLayoutEffect(() => {
+    if (!carouselRef.current && trackRef.current) {
+      carouselRef.current = new Carousel(options.items, {
+        width: trackRef.current.clientWidth,
+      });
+
+      carouselRef.current.onStateChange = function (state) {
+        setState({ ...state });
+      };
     }
-  }
-
-  function goToPrevItem() {
-    if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
-    }
-  }
-
-  function goToIndex(index: number) {
-    setCurrentIndex(index);
-  }
+  }, [options.items]);
 
   useEffect(() => {
-    const containerRefProp = containerRef.current;
+    const trackRefProps = trackRef.current;
+    const carouselRefProps = carouselRef.current;
 
-    console.log(containerRefProp);
-    if (!containerRefProp) {
+    if (!trackRefProps || !carouselRefProps) {
       return;
     }
 
-    const containerWidth = containerRefProp.clientWidth;
-
     const newData = options.items.map((item, index) => {
-      setPositions((prev) => [...prev, -(index * containerWidth)]);
-
       return {
         id: index,
         ...item,
-        getProps: () =>
-          ({ style: { width: containerWidth, flexShrink: 0 } } as const),
+        getProps: () => ({
+          style: carouselRefProps.styles.getItemStyle(),
+        }),
       };
     });
 
     setData(newData);
   }, [options.items]);
 
-  console.log(positions);
-
   function typedGetProps<TRef extends HTMLElement>() {
     return {
-      ref: containerRef as React.RefObject<TRef>,
-      style: {
-        display: 'flex',
-        margin: 0,
-        padding: 0,
-        listStyle: 'none',
-        transform: `translateX(${positions[currentIndex]}px)`,
-        transition: '500ms',
-      } as const,
+      ref: trackRef as React.RefObject<TRef>,
+      style: carouselRef.current?.styles.getTrackStyle() ?? trackDefaultStyle,
     };
   }
 
   return {
     items: data,
-    container: { getProps: typedGetProps },
-    state: { currentIndex },
-    triggers: {
-      goToNextItem,
-      goToPrevItem,
-      goToIndex,
+    slider: {
+      getProps: () => ({
+        style:
+          carouselRef.current?.styles.getSliderStyle() ?? sliderDefaultStyle,
+      }),
     },
+    track: { getProps: typedGetProps },
+    state,
+    triggers,
   };
 }

@@ -1,4 +1,9 @@
-export interface ICarouselTriggers {
+import { ICarouselState } from './CarouselState';
+
+export interface ICarouselControls {
+  /**
+   * Function to move for the next item to the list.
+   */
   goToNextItem: () => void;
   /**
    * Function to move for the previous item to the list.
@@ -10,34 +15,23 @@ export interface ICarouselTriggers {
   goToIndex: (index: number) => void;
 }
 
-class CarouselControls implements ICarouselTriggers {
-  size: number;
+class CarouselControls implements ICarouselControls {
+  private readonly _carouselState: ICarouselState;
 
-  currentItem = 0;
-
-  constructor(slidesLen: number) {
-    this.slidesLen = slidesLen - 1;
+  constructor(carouselState: ICarouselState) {
+    this._carouselState = carouselState;
   }
 
   goToNextItem() {
-    if (this.currentSlide < this.slidesLen) {
-      this.currentSlide += 1;
-    }
-    return this.currentSlide;
+    this._carouselState.currentIndex++;
   }
 
   goToPrevItem() {
-    if (this.currentSlide > 0) {
-      this.currentSlide -= 1;
-    }
-    return this.currentSlide;
+    this._carouselState.currentIndex--;
   }
 
   goToIndex(index: number) {
-    if (index <= this.slidesLen && index >= 0) {
-      this.currentSlide = index;
-    }
-    return this.currentSlide;
+    this._carouselState.currentIndex = index;
   }
 }
 

@@ -2,10 +2,13 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
+      "cache": false,
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
     "lint": {
       "outputs": []
     }
-  }
+  },
+  "globalDependencies": ["tsconfig.json"]
 }

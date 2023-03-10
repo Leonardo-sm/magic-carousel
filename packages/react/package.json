@@ -1,12 +1,15 @@
 {
-  "name": "@magic-carousel/react",
+  "name": "@elementalstack/react",
   "version": "0.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsup --config tsup.config.cjs.ts",
+    "build:esm": "tsup  --config tsup.config.esm.ts"
   },
   "devDependencies": {
     "@storybook/react": "^6.5.14",
