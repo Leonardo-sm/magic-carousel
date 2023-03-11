@@ -7,6 +7,7 @@ export const trackDefaultStyle = {
   margin: 0,
   padding: 0,
   listStyle: 'none',
+  bgColor: 'red',
 } as const;
 
 export const itemDefaultStyle = {
