@@ -10,8 +10,8 @@ jobs:
         run: npm ci
       - name: Initialize Git user
         run:
-          git config --global user.email "leonardo.smichelutti@gmail.com"
-          git config --global user.name "Release Workflow"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
       - name: Run release
         run: npm run bump
       - name: End message
