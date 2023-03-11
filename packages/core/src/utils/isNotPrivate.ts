@@ -1,3 +1,3 @@
-export function isNotPrivate(prop: string): string {
+export function isNotPrivate(prop: string): boolean {
   return !prop.startsWith('_');
 }
