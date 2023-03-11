@@ -1,5 +1,17 @@
 
 
+## [0.4.1](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.1.0...@elementalstack/core@0.4.1) (2023-03-11)
+
+
+### Features
+
+* **core:** add new style prop ([522b230](https://github.com/Leonardo-sm/magic-carousel/commit/522b230b92bc4aa8e9f9c06a1d73d2c16b317ee7))
+
+
+### Bug Fixes
+
+* **core:** fix isNotPrivate return type ([f0380b7](https://github.com/Leonardo-sm/magic-carousel/commit/f0380b7289c248279db02989e34da4b43643d1a7))
+
 ## 0.4.0 (2023-03-11)
 
 
