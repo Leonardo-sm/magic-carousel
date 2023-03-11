@@ -9,7 +9,10 @@
     "commit": "cz",
     "lint": "eslint --cache \"src/**/*.{js,jsx,ts,tsx}\" \"stories/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --cache --fix \"src/**/*.{js,jsx,ts,tsx}\" \"stories/**/*.{js,jsx,ts,tsx}\"",
-    "release": "release-it"
+    "release": "release-it",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "pub": "changeset publish"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.20.2",
+    "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
@@ -60,6 +64,7 @@
     "jsdom": "^20.0.3",
     "prettier": "^2.8.0",
     "release-it": "^15.8.0",
+    "syncpack": "^9.8.4",
     "tsup": "^6.6.3",
     "turbo": "^1.6.3",
     "typescript": "^4.9.3",
