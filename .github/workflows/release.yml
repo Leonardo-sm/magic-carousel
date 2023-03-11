@@ -9,6 +9,7 @@ jobs:
       - name: Install the dependencies
         run: npm ci
       - name: Initialize Git user
+        uses: actions/checkout@v3
         run:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
