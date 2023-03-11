@@ -1,0 +1,36 @@
+{
+  "git": {
+    "commit": true,
+    "commitMessage": "chore: release v${version}",
+    "requireCleanWorkingDir": false,
+    "tag": true,
+    "tagName": "@elementalstack/core@${version}",
+    "push": true
+  },
+  "github": {
+    "release": true,
+    "releaseName": "@elementalstack/core ${version}"
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {}
+        ]
+      }
+    }
+  }
+}

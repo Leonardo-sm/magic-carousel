@@ -1,5 +1,15 @@
 
 
+## [1.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.4.1...@elementalstack/core@1.0.0) (2023-03-11)
+
+## [0.4.5](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.4.1...@elementalstack/core@0.4.5) (2023-03-11)
+
+## [0.4.4](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.4.1...@elementalstack/core@0.4.4) (2023-03-11)
+
+## [0.4.3](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.4.1...@elementalstack/core@0.4.3) (2023-03-11)
+
+## [0.4.2](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.4.1...@elementalstack/core@0.4.2) (2023-03-11)
+
 ## [0.4.1](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.1.0...@elementalstack/core@0.4.1) (2023-03-11)
 
 

@@ -1,0 +1,18 @@
+name: Release
+on: workflow_dispatch
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Install the dependencies
+        run: npm ci
+      - name: Initialize Git user
+        run:
+          git config --global user.email "leonardo.smichelutti@gmail.com"
+          git config --global user.name "Release Workflow"
+      - name: Run release
+        run: npm run bump
+      - name: End message
+        run: echo 'All done!'

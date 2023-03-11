@@ -1,0 +1,5 @@
+---
+'@elementalstack/core': major
+---
+
+Teste

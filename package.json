@@ -1,5 +1,5 @@
 {
-  "namespace": "@elementalstack",
+  "name": "@elementalstack",
   "description": "The best way to create a react and react native carousel",
   "scripts": {
     "build": "turbo run build --force",
@@ -12,7 +12,8 @@
     "release": "release-it",
     "changeset": "changeset",
     "version": "changeset version",
-    "pub": "changeset publish"
+    "pub": "changeset publish",
+    "bump": "node scripts/bump.js"
   },
   "repository": {
     "type": "git",
@@ -62,6 +63,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "framer-motion": "^7.6.12",
     "jsdom": "^20.0.3",
+    "markdown-it": "^13.0.1",
     "prettier": "^2.8.0",
     "release-it": "^15.8.0",
     "syncpack": "^9.8.4",
