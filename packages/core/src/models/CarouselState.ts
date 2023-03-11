@@ -1,6 +1,6 @@
 export interface ICarouselState {
   positions: number[];
-  currentIndex: number;
+  currentIndex: number | any;
 }
 
 class CarouselState implements ICarouselState {
