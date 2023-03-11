@@ -1,5 +1,9 @@
 
 
+## [0.3.0](https://github.com/elementalstack/carousel/compare/@elementalstack/core@0.1.0...0.3.0) (2023-03-11)
+
+## [0.2.0](https://github.com/elementalstack/carousel/compare/@elementalstack/core@0.1.0...0.2.0) (2023-03-11)
+
 ## [0.1.1](https://github.com/elementalstack/carousel/compare/0.1.0...0.1.1) (2023-03-10)
 
 
