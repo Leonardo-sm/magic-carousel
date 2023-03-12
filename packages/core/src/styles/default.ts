@@ -8,8 +8,6 @@ export const trackDefaultStyle = {
   padding: 0,
   listStyle: 'none',
   bgColor: 'red',
-  color: 'red',
-  width: '100px',
 } as const;
 
 export const itemDefaultStyle = {
