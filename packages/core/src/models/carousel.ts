@@ -24,7 +24,6 @@ export interface ICarousel {
   state: ICarouselState;
   styles: ICarouselStyles;
   trackProps: ITrackProps;
-  newProp?: string;
   /**
    * A event to observe carousel state updates.
    */
