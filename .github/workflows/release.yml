@@ -21,7 +21,11 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "github-actions@github.com"
       - name: Run release
-        run: npm run bump
+        run: |
+          npm run bump
+          git add .
+          git commit - "Remove changeset file"
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: End message
