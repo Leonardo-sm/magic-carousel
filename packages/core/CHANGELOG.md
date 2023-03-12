@@ -1,5 +1,12 @@
 
 
+## 2.2.0 (2023-03-12)
+
+
+### Bug Fixes
+
+* **core:** test ([da1aaf4](https://github.com/Leonardo-sm/magic-carousel/commit/da1aaf4a06b783af057ca92f1b5d7bed197fab1d))
+
 ## [2.1.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@2.0.0...@elementalstack/core@2.1.0) (2023-03-12)
 
 
