@@ -1,7 +1,7 @@
 name: Release
 on: workflow_dispatch
 permissions:
-  contents: write
+  contents: write | read
 jobs:
   release:
     runs-on: ubuntu-20.04
@@ -20,5 +20,7 @@ jobs:
           git add .
           git commit -m "Remove changeset"
           git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: End message
         run: echo 'All done!'
