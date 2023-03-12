@@ -1,6 +1,6 @@
 
 
-## 2.1.0 (2023-03-12)
+## [2.1.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@2.0.0...@elementalstack/core@2.1.0) (2023-03-12)
 
 
 ### Features

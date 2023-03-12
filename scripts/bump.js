@@ -31,8 +31,7 @@ const targets = changelogJSON.content
 
 targets.forEach((target) => {
   if (target.type === "package") {
-    console.log(target)
-    spawn(`npm run release ${target.version}`, ['-w', target.target], { shell: true, stdio: 'inherit' });
+    spawn(`npm run release ${target.version} --github.autoGenerate`, ['-w', target.target], { shell: true, stdio: 'inherit' });
   }
 })
 

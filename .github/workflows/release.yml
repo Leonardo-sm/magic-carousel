@@ -15,6 +15,10 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "github-actions@github.com"
       - name: Run release
-        run: npm run bump
+        run: |
+          npm run bump
+          git add .
+          git commit -m "Remove changeset"
+          git push origin main
       - name: End message
         run: echo 'All done!'
