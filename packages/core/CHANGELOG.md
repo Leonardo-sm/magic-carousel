@@ -1,5 +1,12 @@
 
 
+## [5.1.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@5.0.1...@elementalstack/core@5.1.0) (2023-03-12)
+
+
+### Features
+
+* **core:** add type ([029320d](https://github.com/Leonardo-sm/magic-carousel/commit/029320d2f8e3d4939a9fa3a583ad3173188f073a))
+
 ## [5.0.1](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@5.0.0...@elementalstack/core@5.0.1) (2023-03-12)
 
 ## [5.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@4.0.0...@elementalstack/core@5.0.0) (2023-03-12)
