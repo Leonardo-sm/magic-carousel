@@ -1,5 +1,12 @@
 
 
+## 7.0.0 (2023-03-12)
+
+
+### Features
+
+* **core:** add changelog ([eff319b](https://github.com/Leonardo-sm/magic-carousel/commit/eff319b7c7a3a0cae58f9700b0b3cc9b9b58b830))
+
 ## [6.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@5.1.0...@elementalstack/core@6.0.0) (2023-03-12)
 
 
