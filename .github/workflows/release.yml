@@ -1,7 +1,7 @@
 name: Release
 on: workflow_dispatch
 permissions:
-  contents: write|read
+  contents: write
 jobs:
   release:
     runs-on: ubuntu-20.04
