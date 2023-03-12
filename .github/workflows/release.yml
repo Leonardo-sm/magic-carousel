@@ -24,7 +24,7 @@ jobs:
         run: |
           npm run bump
           git add .
-          git commit - "Remove changeset file"
+          git commit -m "Remove changeset file"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
