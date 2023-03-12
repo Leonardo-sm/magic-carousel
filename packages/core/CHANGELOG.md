@@ -1,5 +1,13 @@
 
 
+## [4.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@3.2.0...@elementalstack/core@4.0.0) (2023-03-12)
+
+
+### Features
+
+* **core:** add changelog ([6e538a9](https://github.com/Leonardo-sm/magic-carousel/commit/6e538a9ba520d377d0908f4bf7029c80148fb5ea))
+* **core:** remove type ([b92fea0](https://github.com/Leonardo-sm/magic-carousel/commit/b92fea0dfb38d32e4fe1c1ab8273f59d91a108f1))
+
 ## 3.2.0 (2023-03-12)
 
 
