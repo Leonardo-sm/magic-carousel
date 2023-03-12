@@ -1,5 +1,0 @@
----
-'@elementalstack/core': major
----
-
-gdsagf
