@@ -1,5 +1,0 @@
----
-'@elementalstack/core': minor
----
-
-f
