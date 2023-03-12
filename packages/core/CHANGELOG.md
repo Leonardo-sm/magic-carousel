@@ -1,5 +1,12 @@
 
 
+## [6.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@5.1.0...@elementalstack/core@6.0.0) (2023-03-12)
+
+
+### Features
+
+* **core:** remove type ([616d8bb](https://github.com/Leonardo-sm/magic-carousel/commit/616d8bb3a43b8c824196bf1232cb8da3c412b95e))
+
 ## [5.1.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@5.0.1...@elementalstack/core@5.1.0) (2023-03-12)
 
 

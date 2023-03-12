@@ -9,8 +9,7 @@
   },
   "github": {
     "release": true,
-    "releaseName": "@elementalstack/core ${version}",
-    "autoGenerate": true
+    "releaseName": "@elementalstack/core ${version}"
   },
   "npm": {
     "publish": false
