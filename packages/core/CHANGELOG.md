@@ -1,5 +1,12 @@
 
 
+## 3.1.0 (2023-03-12)
+
+
+### Features
+
+* **core:** add changelog ([d6395ca](https://github.com/Leonardo-sm/magic-carousel/commit/d6395ca7f2a950a4f1e90a7fa7558f77b9bc1186))
+
 ## 3.0.0 (2023-03-12)
 
 ## 2.2.0 (2023-03-12)
