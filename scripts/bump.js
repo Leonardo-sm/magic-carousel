@@ -36,4 +36,7 @@ targets.forEach((target) => {
   }
 })
 
+fs.unlinkSync(changelogPath);
+
+
 

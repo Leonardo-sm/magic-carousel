@@ -9,6 +9,7 @@ export const trackDefaultStyle = {
   listStyle: 'none',
   bgColor: 'red',
   color: 'red',
+  width: '100px',
 } as const;
 
 export const itemDefaultStyle = {
