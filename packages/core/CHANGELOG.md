@@ -1,5 +1,7 @@
 
 
+## [5.0.1](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@5.0.0...@elementalstack/core@5.0.1) (2023-03-12)
+
 ## [5.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@4.0.0...@elementalstack/core@5.0.0) (2023-03-12)
 
 
