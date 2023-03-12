@@ -1,5 +1,12 @@
 
 
+## 2.1.0 (2023-03-12)
+
+
+### Features
+
+* **core:** add test feature in core ([8437ef7](https://github.com/Leonardo-sm/magic-carousel/commit/8437ef7c21609361d8cf29d2b54c9d17f20913b4))
+
 ## 2.0.0 (2023-03-12)
 
 ## [1.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@0.4.1...@elementalstack/core@1.0.0) (2023-03-11)
