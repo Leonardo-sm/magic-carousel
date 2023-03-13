@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup node version
         uses: actions/setup-node@v3
         with:
