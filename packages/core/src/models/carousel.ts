@@ -30,7 +30,7 @@ export interface ICarousel {
   onStateChange?: (state: ICarouselState) => void;
 }
 
-function _makePositions(items: ICarouselItem[], width: number) {
+function _makePositions(items: ICarouselItem[], width: number): number[] {
   return items.map((_, index) => width * index);
 }
 
