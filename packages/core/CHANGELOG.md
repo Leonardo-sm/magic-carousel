@@ -1,5 +1,14 @@
 
 
+## [8.1.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@8.0.0...@elementalstack/core@8.1.0) (2023-03-13)
+
+
+### Features
+
+* **core:** add changelog ([286d58e](https://github.com/Leonardo-sm/magic-carousel/commit/286d58e41ac1e3b888062bd7b0c734145f58f7fc))
+* **core:** commit test 1 ([3fa18e7](https://github.com/Leonardo-sm/magic-carousel/commit/3fa18e7d941dd2e3be591a7c93bd1e3635f197d2))
+* **core:** commit test 2 ([726b236](https://github.com/Leonardo-sm/magic-carousel/commit/726b23618bcd3782b89178f0089a09fd8a32f349))
+
 ## [8.0.0](https://github.com/Leonardo-sm/magic-carousel/compare/@elementalstack/core@7.4.0...@elementalstack/core@8.0.0) (2023-03-13)
 
 
