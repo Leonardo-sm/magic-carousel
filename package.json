@@ -13,7 +13,7 @@
     "changeset": "changeset",
     "version": "changeset version",
     "pub": "changeset publish",
-    "bump": "node scripts/bump.js"
+    "bump": "node scripts/bump.mjs"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "@changesets/cli": "^2.26.0",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
+    "@faker-js/faker": "^7.6.0",
     "@release-it/conventional-changelog": "^5.1.1",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -62,6 +63,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unused-imports": "^2.0.0",
     "framer-motion": "^7.6.12",
+    "inquirer": "^9.1.4",
+    "inquirer-table-prompt": "^0.2.1",
     "jsdom": "^20.0.3",
     "markdown-it": "^13.0.1",
     "prettier": "^2.8.0",
