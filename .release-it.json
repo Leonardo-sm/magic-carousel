@@ -26,6 +26,10 @@
           {}
         ]
       }
+    },
+    "@release-it-plugins/workspaces": {
+      "skipChecks": true,
+      "publish": false
     }
   }
 }
