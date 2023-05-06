@@ -5,7 +5,7 @@ export const sliderDefaultStyle = {
 export const trackDefaultStyle = {
   display: 'flex',
   margin: 0,
-  padding: 0,
+  padding: 10,
   listStyle: 'none',
 } as const;
 
