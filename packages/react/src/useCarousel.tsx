@@ -105,7 +105,7 @@ export function useCarousel(options: IUseCarousel): IUseCarouselReturn {
   const [data, setData] = useState<IReturnItem[]>([]);
   const [state, setState] = useState<ICarouselState>({} as ICarouselState);
 
-  console.log('test');
+  console.log('test 2');
 
   const triggers = {
     goToNextItem: () => carouselRef.current?.controls.goToNextItem(),
